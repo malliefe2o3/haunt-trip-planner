@@ -190,3 +190,29 @@ def test_optimize_full_pipeline():
                 ab_dates[entry.attraction.name] = d
     if "A" in ab_dates and "B" in ab_dates:
         assert ab_dates["A"] == ab_dates["B"]
+
+
+# ---------------------------------------------------------------------------
+# Phase 5: reoptimize
+# ---------------------------------------------------------------------------
+
+from optimizer import reoptimize
+
+
+def test_reoptimize_locks_manual_assignment():
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3), date(2026, 10, 4), date(2026, 10, 5)])
+    trip = _make_trip([a])
+    result = reoptimize(trip, locked={"A": date(2026, 10, 4)})
+    # A must appear on Oct 4
+    assert date(2026, 10, 4) in result.scheduled
+    assert any(e.attraction.name == "A" for e in result.scheduled[date(2026, 10, 4)])
+
+
+def test_reoptimize_returns_changed_entries():
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3), date(2026, 10, 4)])
+    b = _make_attraction("B", 36.16, -86.78, [date(2026, 10, 3), date(2026, 10, 4)])
+    trip = _make_trip([a, b])
+    result = reoptimize(trip, locked={})
+    assert isinstance(result, ItineraryResult)
+    total = sum(len(entries) for entries in result.scheduled.values())
+    assert total >= 1

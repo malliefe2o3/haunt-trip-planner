@@ -312,3 +312,17 @@ def optimize(trip: Trip) -> ItineraryResult:
             unscheduled.append((a, "No eligible dates found"))
 
     return ItineraryResult(scheduled=scheduled, unscheduled=unscheduled)
+
+
+# ---------------------------------------------------------------------------
+# Phase 5: reoptimize
+# ---------------------------------------------------------------------------
+
+def reoptimize(trip: Trip, locked: Dict[str, date]) -> ItineraryResult:
+    """Re-run optimize with manual locks applied to attractions."""
+    for attraction in trip.attractions:
+        if attraction.name in locked:
+            attraction.assigned_dates = [locked[attraction.name]]
+        else:
+            attraction.assigned_dates = None
+    return optimize(trip)
