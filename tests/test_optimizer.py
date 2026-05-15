@@ -97,3 +97,96 @@ def test_cluster_solo():
     clusters = build_clusters([a])
     assert len(clusters) == 1
     assert len(clusters[0]) == 1
+
+
+# ---------------------------------------------------------------------------
+# Phase 3-4: assign_dates and assign_time_slots
+# ---------------------------------------------------------------------------
+
+from optimizer import assign_dates, assign_time_slots, optimize, ItineraryEntry, ItineraryResult
+
+
+def test_assign_dates_scarcity_first():
+    # A open only Oct 3, B open Oct 3, 4, 5 → A gets Oct 3, B gets a different date
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3)])
+    b = _make_attraction("B", 36.16, -86.78, [date(2026, 10, 3), date(2026, 10, 4), date(2026, 10, 5)])
+    trip = _make_trip([a, b])
+    eligible = filter_eligible_dates(trip)
+    clusters = build_clusters([a, b])
+    assignment = assign_dates(clusters, eligible, trip)
+    assert assignment["A"] == date(2026, 10, 3)
+    assert assignment["B"] != date(2026, 10, 3)
+
+
+def test_assign_dates_respects_cluster_separation():
+    # A and B in different clusters → assigned to different dates
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3), date(2026, 10, 4)])
+    b = _make_attraction("B", 36.16, -86.78, [date(2026, 10, 3), date(2026, 10, 4)])
+    trip = _make_trip([a, b])
+    eligible = filter_eligible_dates(trip)
+    clusters = build_clusters([a, b])  # A and B are far apart → different clusters
+    assignment = assign_dates(clusters, eligible, trip)
+    assert assignment["A"] != assignment["B"]
+
+
+def test_assign_time_slots_single():
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3)])
+    entries = assign_time_slots([a], date(2026, 10, 3))
+    assert len(entries) == 1
+    assert entries[0].arrival_time == time(19, 0)
+
+
+def test_assign_time_slots_multiple():
+    # A opens 19:00, B opens 20:00, ~1mi apart
+    a = Attraction(
+        name="A", address="A address", lat=41.88, lng=-87.63,
+        schedule_url="https://a.com",
+        schedule=[ScheduleEntry(date=date(2026, 10, 3), open_time=time(19, 0), close_time=time(23, 0))],
+    )
+    b = Attraction(
+        name="B", address="B address", lat=41.89, lng=-87.64,
+        schedule_url="https://b.com",
+        schedule=[ScheduleEntry(date=date(2026, 10, 3), open_time=time(20, 0), close_time=time(23, 0))],
+    )
+    entries = assign_time_slots([a, b], date(2026, 10, 3))
+    scheduled = [e for e in entries if not e.bumped]
+    assert len(scheduled) == 2
+    # B arrival = 19:00 + 45min + drive_time(~1mi at 40mph = 1.5min) ≈ 19:46-19:47
+    b_entry = next(e for e in scheduled if e.attraction.name == "B")
+    assert b_entry.arrival_time.hour == 19
+    assert 46 <= b_entry.arrival_time.minute <= 48
+
+
+def test_assign_time_slots_rejects_late_arrival():
+    # B closes 20:00; would arrive ~19:47, only 13min before close < 45min → bumped
+    a = Attraction(
+        name="A", address="A address", lat=41.88, lng=-87.63,
+        schedule_url="https://a.com",
+        schedule=[ScheduleEntry(date=date(2026, 10, 3), open_time=time(19, 0), close_time=time(23, 0))],
+    )
+    b = Attraction(
+        name="B", address="B address", lat=41.89, lng=-87.64,
+        schedule_url="https://b.com",
+        schedule=[ScheduleEntry(date=date(2026, 10, 3), open_time=time(20, 0), close_time=time(20, 0))],
+    )
+    entries = assign_time_slots([a, b], date(2026, 10, 3))
+    b_entry = next(e for e in entries if e.attraction.name == "B")
+    assert b_entry.bumped is True
+
+
+def test_optimize_full_pipeline():
+    # A and B close together, C far away → A and B should be on the same date
+    a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3), date(2026, 10, 4)])
+    b = _make_attraction("B", 41.89, -87.64, [date(2026, 10, 3), date(2026, 10, 4)])
+    c = _make_attraction("C", 36.16, -86.78, [date(2026, 10, 3), date(2026, 10, 4)])
+    trip = _make_trip([a, b, c])
+    result = optimize(trip)
+    assert isinstance(result, ItineraryResult)
+    # A and B should be on the same date (they're in the same cluster)
+    ab_dates = {}
+    for d, entries in result.scheduled.items():
+        for entry in entries:
+            if entry.attraction.name in ("A", "B"):
+                ab_dates[entry.attraction.name] = d
+    if "A" in ab_dates and "B" in ab_dates:
+        assert ab_dates["A"] == ab_dates["B"]
