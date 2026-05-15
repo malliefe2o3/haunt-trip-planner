@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Export — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Export Itinerary</h2>
+    <div class="form-group">
+        <label for="export-title">Trip Title</label>
+        <input type="text" id="export-title" value="Haunt Trip 2026">
+    </div>
+    <div class="form-row">
+        <button class="btn btn-primary" onclick="printItinerary()">Print</button>
+        <button class="btn btn-secondary" onclick="downloadHtml()">Download HTML</button>
+    </div>
+</section>
+
+<section class="card" id="export-preview">
+    <h2>Preview</h2>
+    <div id="preview-content">
+        <p class="empty-state">Click Print or Download to generate.</p>
+    </div>
+</section>
+{% endblock %}

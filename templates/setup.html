@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Setup — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Trip Dates</h2>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="start-date">Start Date</label>
+            <input type="date" id="start-date" value="2026-10-01">
+        </div>
+        <div class="form-group">
+            <label for="end-date">End Date</label>
+            <input type="date" id="end-date" value="2026-10-14">
+        </div>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Locations</h2>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="start-location">Start Location</label>
+            <input type="text" id="start-location" placeholder="e.g. Chicago, IL">
+        </div>
+        <div class="form-group">
+            <label for="end-location">End Location</label>
+            <input type="text" id="end-location" placeholder="e.g. Chicago, IL">
+        </div>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Blackout Dates</h2>
+    <div id="blackout-list"></div>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="date" id="blackout-input">
+        </div>
+        <button class="btn btn-secondary" onclick="addBlackout()">Add Blackout</button>
+    </div>
+</section>
+
+<section class="card">
+    <h2>Trip Legs <small>(optional)</small></h2>
+    <div id="legs-list"></div>
+    <button class="btn btn-secondary" onclick="addLeg()">+ Add Leg</button>
+</section>
+
+<section class="card">
+    <h2>Claude API Key <small>(optional)</small></h2>
+    <div class="form-group">
+        <input type="password" id="api-key" placeholder="sk-ant-...">
+        <small>Enables AI-powered schedule parsing for better accuracy.</small>
+    </div>
+</section>
+
+<button class="btn btn-primary" onclick="saveTrip()">Save &amp; Continue</button>
+<div id="setup-status" class="status-message"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Page-specific init if needed
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Attractions — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Add Attraction</h2>
+    <div class="form-group">
+        <label for="attr-name">Name</label>
+        <input type="text" id="attr-name" placeholder="e.g. Statesville Haunted Prison">
+    </div>
+    <div class="form-group">
+        <label for="attr-address">Address</label>
+        <input type="text" id="attr-address" placeholder="e.g. 1401 N Main St, Lockport, IL">
+    </div>
+    <div class="form-group">
+        <label for="attr-url">Schedule URL</label>
+        <input type="url" id="attr-url" placeholder="https://...">
+    </div>
+    <button class="btn btn-primary" onclick="addAttraction()">Add Attraction</button>
+    <div id="attr-status" class="status-message"></div>
+</section>
+
+<section class="card">
+    <h2>Added Attractions</h2>
+    <div id="attractions-list">
+        <p class="empty-state">No attractions added yet.</p>
+    </div>
+</section>
+
+<button class="btn btn-primary" onclick="submitAttractions()">Continue to Review</button>
+{% endblock %}

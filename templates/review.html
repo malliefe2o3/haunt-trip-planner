@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Review — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Review Scraped Schedules</h2>
+    <p>Review the scraped data below. Edit any fields that look incorrect, then generate the itinerary.</p>
+</section>
+
+<div id="review-cards">
+    <div class="spinner"></div>
+    <p class="loading-text">Loading scraped data...</p>
+</div>
+
+<button class="btn btn-primary" onclick="generateItinerary()" id="generate-btn" disabled>Generate Itinerary</button>
+<div id="review-status" class="status-message"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        loadReview();
+    });
+</script>
+{% endblock %}

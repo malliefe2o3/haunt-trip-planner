@@ -1,0 +1,599 @@
+/* ==========================================================================
+   Haunt Trip Planner — Spooky Dark Theme
+   ========================================================================== */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0d0d0d;
+    color: #d4d4d4;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ---------- Fog Animation ---------- */
+.fog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(142, 68, 173, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(192, 57, 43, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(78, 203, 113, 0.02) 0%, transparent 50%);
+    animation: fogDrift 20s ease-in-out infinite;
+}
+
+@keyframes fogDrift {
+    0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.6; }
+    25% { transform: rotate(1deg) scale(1.02); opacity: 0.8; }
+    50% { transform: rotate(-1deg) scale(1.04); opacity: 0.5; }
+    75% { transform: rotate(0.5deg) scale(1.01); opacity: 0.7; }
+}
+
+/* ---------- Cobweb Corners ---------- */
+.cobweb {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.15;
+}
+
+.cobweb-top-left {
+    top: 0;
+    left: 0;
+    background: radial-gradient(ellipse at 0% 0%, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+.cobweb-top-right {
+    top: 0;
+    right: 0;
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.3) 0%, transparent 70%);
+}
+
+/* ---------- Container ---------- */
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px 60px;
+}
+
+/* ---------- Drip Text (h1) ---------- */
+.drip-text {
+    text-align: center;
+    font-size: 2.4em;
+    color: #c0392b;
+    text-shadow:
+        0 0 10px rgba(192, 57, 43, 0.5),
+        0 0 30px rgba(192, 57, 43, 0.2);
+    margin-bottom: 8px;
+    padding-bottom: 12px;
+    background-image: linear-gradient(90deg, transparent, #8e44ad, #c0392b, #8e44ad, transparent);
+    background-size: 100% 2px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+/* ---------- Nav Bar ---------- */
+.nav-bar {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #888;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: color 0.2s, background 0.2s;
+}
+
+.nav-link:hover {
+    color: #d4d4d4;
+    background: rgba(142, 68, 173, 0.15);
+}
+
+.nav-link.active {
+    color: #e0e0e0;
+    background: rgba(142, 68, 173, 0.25);
+    border-bottom: 2px solid #8e44ad;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+    border: 1px solid #2a2a2a;
+}
+
+.card h2 {
+    color: #8e44ad;
+    margin-bottom: 16px;
+    font-size: 1.3em;
+}
+
+.card h2 small {
+    color: #666;
+    font-weight: normal;
+    font-size: 0.7em;
+}
+
+/* ---------- Forms ---------- */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    color: #aaa;
+    margin-bottom: 4px;
+    font-size: 0.9em;
+}
+
+.form-group small {
+    display: block;
+    color: #666;
+    margin-top: 4px;
+    font-size: 0.8em;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="date"],
+input[type="number"],
+input[type="password"],
+input[type="time"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #d4d4d4;
+    font-size: 0.95em;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #8e44ad, #6c3483);
+    color: #fff;
+}
+
+.btn-danger {
+    background: #c0392b;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #333;
+    color: #d4d4d4;
+}
+
+/* ---------- Confidence Badges ---------- */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-green {
+    background: #1a4a1a;
+    color: #4ecb71;
+}
+
+.badge-yellow {
+    background: #4a3a0e;
+    color: #f1c40f;
+}
+
+.badge-red {
+    background: #4a0e0e;
+    color: #e74c3c;
+}
+
+/* ---------- Status Messages ---------- */
+.status-message {
+    margin-top: 12px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.status-message.success {
+    background: #1a4a1a;
+    color: #4ecb71;
+}
+
+.status-message.error {
+    background: #4a0e0e;
+    color: #e74c3c;
+}
+
+.empty-state {
+    color: #555;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-text {
+    color: #888;
+    text-align: center;
+}
+
+/* ---------- Attraction List Items ---------- */
+.attraction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: #111;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    border-left: 3px solid #8e44ad;
+}
+
+.attraction-item .name {
+    font-weight: bold;
+    color: #d4d4d4;
+}
+
+.attraction-item .address {
+    font-size: 0.85em;
+    color: #888;
+}
+
+/* ---------- Review Cards ---------- */
+.review-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid #2a2a2a;
+}
+
+.review-card .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.review-card .review-header h3 {
+    color: #d4d4d4;
+    margin: 0;
+}
+
+.review-card .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.review-card .schedule-table th,
+.review-card .schedule-table td {
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid #222;
+    font-size: 0.9em;
+}
+
+.review-card .schedule-table th {
+    color: #8e44ad;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.review-card .schedule-table input {
+    width: 100%;
+    padding: 4px 6px;
+    font-size: 0.85em;
+}
+
+/* ---------- Itinerary ---------- */
+.date-header {
+    background: linear-gradient(90deg, rgba(142, 68, 173, 0.2), transparent);
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #8e44ad;
+    font-weight: bold;
+}
+
+.haunt-entry {
+    background: #1a1a1a;
+    border-left: 4px solid #8e44ad;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+}
+
+.haunt-entry .haunt-name {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #e0e0e0;
+}
+
+.haunt-entry .haunt-time {
+    color: #888;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+.haunt-entry .haunt-price {
+    color: #c0392b;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+.haunt-entry .haunt-price a {
+    color: #c0392b;
+    text-decoration: none;
+}
+
+.haunt-entry .haunt-price a:hover {
+    text-decoration: underline;
+}
+
+.subtotal {
+    text-align: right;
+    color: #8e44ad;
+    font-weight: bold;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #333;
+}
+
+.trip-total {
+    text-align: right;
+    font-size: 1.3em;
+    color: #c0392b;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #4a0e0e;
+}
+
+.unscheduled-section {
+    margin-top: 24px;
+    padding: 16px;
+    background: #2a1a1a;
+    border: 1px solid #4a0e0e;
+    border-radius: 4px;
+}
+
+.unscheduled-section h3 {
+    color: #c0392b;
+    margin-bottom: 10px;
+}
+
+.unscheduled-item {
+    padding: 6px 0;
+    border-bottom: 1px solid #3a1a1a;
+    font-size: 0.9em;
+}
+
+.unscheduled-item strong {
+    color: #d4d4d4;
+}
+
+/* ---------- Discovery Suggestions ---------- */
+.suggestion {
+    background: #1a1a1a;
+    border-left: 4px solid #4ecb71;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+}
+
+.suggestion .suggestion-name {
+    font-weight: bold;
+    color: #4ecb71;
+}
+
+.suggestion .suggestion-detail {
+    color: #888;
+    font-size: 0.85em;
+    margin-top: 4px;
+}
+
+.suggestion a {
+    color: #4ecb71;
+    text-decoration: none;
+}
+
+.suggestion a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Gap List ---------- */
+.gap-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.gap-date {
+    background: #222;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+/* ---------- Blackout / Leg Tags ---------- */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #222;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    color: #d4d4d4;
+    margin: 4px;
+}
+
+.tag .remove-tag {
+    cursor: pointer;
+    color: #c0392b;
+    font-weight: bold;
+}
+
+/* ---------- Leg Card ---------- */
+.leg-card {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.leg-card .leg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.leg-card .leg-header h3 {
+    color: #8e44ad;
+    font-size: 1em;
+    margin: 0;
+}
+
+/* ---------- Loading Spinner ---------- */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #333;
+    border-top-color: #8e44ad;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-card {
+    text-align: center;
+}
+
+/* ---------- Print Media ---------- */
+@media print {
+    .fog,
+    .cobweb,
+    .nav-bar,
+    .btn,
+    #adjust-panel,
+    #discovery-panel {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: #222;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .card {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .card h2 {
+        color: #8e44ad;
+    }
+
+    .drip-text {
+        color: #8e44ad;
+        text-shadow: none;
+    }
+
+    .haunt-entry {
+        background: #f9f9f9;
+    }
+
+    .date-header {
+        background: #f0f0f0;
+        color: #8e44ad;
+    }
+}

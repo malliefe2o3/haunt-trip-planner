@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Scraping — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card loading-card">
+    <h2>Scraping Schedules</h2>
+    <div class="spinner"></div>
+    <p id="loading-status">Fetching schedule data from attraction websites...</p>
+    <div id="loading-progress"></div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        loadReview();
+    });
+</script>
+{% endblock %}
