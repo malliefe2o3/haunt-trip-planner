@@ -1,4 +1,5 @@
 from datetime import date, time
+from unittest.mock import patch, MagicMock
 from scraper import (
     parse_dates_from_text,
     parse_times_from_text,
@@ -6,6 +7,8 @@ from scraper import (
     find_ticket_links,
     scrape_schedule,
     ScrapedSchedule,
+    llm_parse_schedule,
+    scrape_schedule_with_llm,
 )
 
 
@@ -99,3 +102,32 @@ def test_scraped_schedule_confidence_yellow():
 def test_scraped_schedule_confidence_red():
     s = ScrapedSchedule(dates=[], time_ranges=[], prices=[], ticket_urls=[])
     assert s.confidence == "red"
+
+
+def test_llm_parse_schedule_parses_json_response():
+    mock_response = MagicMock()
+    mock_response.content = [MagicMock(text='{"dates": ["2026-10-04", "2026-10-05"], "time_ranges": [["19:00", "23:00"]], "prices": [25.0], "ticket_urls": ["https://example.com/tix"]}')]
+
+    with patch("scraper.anthropic") as mock_anthropic:
+        mock_client = MagicMock()
+        mock_client.messages.create.return_value = mock_response
+        mock_anthropic.Anthropic.return_value = mock_client
+
+        result = llm_parse_schedule("Some haunt page text", api_key="test-key")
+
+    assert date(2026, 10, 4) in result.dates
+    assert date(2026, 10, 5) in result.dates
+    assert result.prices == [25.0]
+    assert result.confidence in ("green", "yellow")
+
+
+def test_llm_parse_schedule_returns_red_on_failure():
+    with patch("scraper.anthropic") as mock_anthropic:
+        mock_client = MagicMock()
+        mock_client.messages.create.side_effect = Exception("API error")
+        mock_anthropic.Anthropic.return_value = mock_client
+
+        result = llm_parse_schedule("Some text", api_key="test-key")
+
+    assert result.confidence == "red"
+    assert result.dates == []
