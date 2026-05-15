@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Locations — Haunt Trip Planner{% endblock %}
+
+{% block content %}
+<section class="card">
+    <h2>Home Base</h2>
+    <p style="color:#888; margin-bottom:16px;">Your home base is the default starting and ending point for any dates not covered by a trip segment.</p>
+    <div class="form-group">
+        <label for="home-base">Home Base Location</label>
+        <input type="text" id="home-base" placeholder="e.g. Chicago, IL">
+    </div>
+</section>
+
+<div id="segment-locations"></div>
+
+<button class="btn btn-primary" onclick="saveLocations()">Save &amp; Continue</button>
+<div id="locations-status" class="status-message"></div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    renderSegmentLocations();
+});
+</script>
+{% endblock %}

@@ -26,6 +26,11 @@ def test_index_returns_200(client):
     assert response.status_code == 200
 
 
+def test_locations_page_returns_200(client):
+    response = client.get("/locations")
+    assert response.status_code == 200
+
+
 def test_setup_page_returns_200(client):
     response = client.get("/setup")
     assert response.status_code == 200
@@ -70,10 +75,9 @@ def test_api_save_trip(client):
     with patch("hauntplanner.geocode_address", return_value=(41.88, -87.63)):
         trip_data = {
             "date_range": {"start": "2026-10-01", "end": "2026-10-14"},
-            "start_location": "Chicago, IL",
-            "end_location": "Chicago, IL",
+            "home_base": "Chicago, IL",
             "blackout_dates": ["2026-10-05"],
-            "legs": [],
+            "segments": [],
         }
         response = client.post(
             "/api/trip",
@@ -84,14 +88,13 @@ def test_api_save_trip(client):
         assert response.get_json()["status"] == "ok"
 
 
-def test_api_save_trip_with_legs(client):
+def test_api_save_trip_with_segments(client):
     with patch("hauntplanner.geocode_address", return_value=(41.88, -87.63)):
         trip_data = {
             "date_range": {"start": "2026-10-01", "end": "2026-10-14"},
-            "start_location": "Chicago, IL",
-            "end_location": "Chicago, IL",
+            "home_base": "Chicago, IL",
             "blackout_dates": [],
-            "legs": [
+            "segments": [
                 {
                     "date_range": {"start": "2026-10-01", "end": "2026-10-07"},
                     "start_location": "Chicago, IL",
@@ -178,10 +181,9 @@ def test_full_workflow(client):
             "/api/trip",
             data=json.dumps({
                 "date_range": {"start": "2026-10-01", "end": "2026-10-14"},
-                "start_location": "Chicago, IL",
-                "end_location": "Chicago, IL",
+                "home_base": "Chicago, IL",
                 "blackout_dates": [],
-                "legs": [],
+                "segments": [],
             }),
             content_type="application/json",
         )
@@ -251,10 +253,9 @@ def test_api_schedule_not_found(client):
             "/api/trip",
             data=json.dumps({
                 "date_range": {"start": "2026-10-01", "end": "2026-10-14"},
-                "start_location": "Chicago, IL",
-                "end_location": "Chicago, IL",
+                "home_base": "Chicago, IL",
                 "blackout_dates": [],
-                "legs": [],
+                "segments": [],
             }),
             content_type="application/json",
         )

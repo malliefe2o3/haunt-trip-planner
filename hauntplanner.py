@@ -7,7 +7,7 @@ from typing import Optional, List, Dict
 
 from flask import Flask, render_template, request, jsonify
 
-from models import Trip, Location, Attraction, ScheduleEntry, Leg
+from models import Trip, Location, Attraction, ScheduleEntry, Segment
 from geocoder import geocode_address
 from scraper import scrape_schedule_with_llm
 from optimizer import optimize, reoptimize, filter_eligible_dates, ItineraryResult
@@ -46,6 +46,7 @@ def _serialize_itinerary(result):
                 "close_time": e.close_time.isoformat(),
                 "price": e.price,
                 "ticket_url": e.ticket_url,
+                "drive_time_min": e.drive_time_min,
             }
             for e in entries
         ]
@@ -76,6 +77,10 @@ def create_app() -> Flask:
     @app.route("/setup")
     def setup_page():
         return render_template("setup.html")
+
+    @app.route("/locations")
+    def locations_page():
+        return render_template("locations.html")
 
     @app.route("/attractions")
     def attractions_page():
@@ -119,47 +124,43 @@ def create_app() -> Flask:
 
         blackouts = [date.fromisoformat(d) for d in data.get("blackout_dates", [])]
 
+        home_addr = data.get("home_base", "")
         try:
-            start_coords = geocode_address(data["start_location"])
+            home_coords = geocode_address(home_addr) if home_addr else (0.0, 0.0)
         except Exception:
-            start_coords = (0.0, 0.0)
+            home_coords = (0.0, 0.0)
+        home_base = Location(home_addr, home_coords[0], home_coords[1])
 
-        try:
-            end_coords = geocode_address(data["end_location"])
-        except Exception:
-            end_coords = (0.0, 0.0)
+        segments = []  # type: List[Segment]
+        for seg_data in data.get("segments", []):
+            seg_dr = seg_data["date_range"]
+            seg_start = date.fromisoformat(seg_dr["start"])
+            seg_end = date.fromisoformat(seg_dr["end"])
 
-        start_loc = Location(data["start_location"], start_coords[0], start_coords[1])
-        end_loc = Location(data["end_location"], end_coords[0], end_coords[1])
-
-        legs = []  # type: List[Leg]
-        for leg_data in data.get("legs", []):
-            leg_dr = leg_data["date_range"]
-            leg_start = date.fromisoformat(leg_dr["start"])
-            leg_end = date.fromisoformat(leg_dr["end"])
+            s_addr = seg_data.get("start_location", home_addr)
+            e_addr = seg_data.get("end_location", home_addr)
 
             try:
-                ls_coords = geocode_address(leg_data["start_location"])
+                s_coords = geocode_address(s_addr) if s_addr else home_coords
             except Exception:
-                ls_coords = (0.0, 0.0)
+                s_coords = home_coords
 
             try:
-                le_coords = geocode_address(leg_data["end_location"])
+                e_coords = geocode_address(e_addr) if e_addr else home_coords
             except Exception:
-                le_coords = (0.0, 0.0)
+                e_coords = home_coords
 
-            legs.append(Leg(
-                date_range=(leg_start, leg_end),
-                start_location=Location(leg_data["start_location"], ls_coords[0], ls_coords[1]),
-                end_location=Location(leg_data["end_location"], le_coords[0], le_coords[1]),
+            segments.append(Segment(
+                date_range=(seg_start, seg_end),
+                start_location=Location(s_addr, s_coords[0], s_coords[1]),
+                end_location=Location(e_addr, e_coords[0], e_coords[1]),
             ))
 
         _trip = Trip(
             date_range=(start_date, end_date),
-            start_location=start_loc,
-            end_location=end_loc,
+            home_base=home_base,
             blackout_dates=blackouts,
-            legs=legs,
+            segments=segments,
             attractions=_trip.attractions if _trip else [],
         )
 
@@ -190,11 +191,9 @@ def create_app() -> Flask:
         )
 
         if _trip is None:
-            # Create a minimal trip to hold attractions
             _trip = Trip(
                 date_range=(date(2026, 10, 1), date(2026, 10, 31)),
-                start_location=Location("", 0.0, 0.0),
-                end_location=Location("", 0.0, 0.0),
+                home_base=Location("", 0.0, 0.0),
                 attractions=[attraction],
             )
         else:
@@ -320,21 +319,26 @@ def create_app() -> Flask:
         if _trip is None or _itinerary is None:
             return jsonify({"gaps": [], "suggestions": []})
 
+        existing_names = {a.name.lower() for a in _trip.attractions}
+
         scheduled_dates = set(_itinerary.scheduled.keys())
         gaps = find_gap_nights(_trip, scheduled_dates)
 
-        suggestions = find_densify_opportunities(_itinerary, _trip.attractions)
+        all_suggestions = find_densify_opportunities(_itinerary, _trip.attractions)
+        filtered = [s for s in all_suggestions if s.attraction.name.lower() not in existing_names]
+
         return jsonify({
             "gaps": [str(d) for d in gaps],
             "suggestions": [
                 {
                     "name": s.attraction.name,
+                    "address": s.attraction.address,
                     "date": str(s.suggested_date) if s.suggested_date else None,
                     "distance": round(s.distance_miles, 1),
                     "type": s.suggestion_type,
                     "url": s.website_url,
                 }
-                for s in suggestions
+                for s in filtered
             ],
         })
 

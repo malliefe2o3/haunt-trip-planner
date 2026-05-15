@@ -1,6 +1,6 @@
 # tests/test_models.py
 from datetime import date, time
-from models import Location, ScheduleEntry, Attraction, Leg, Trip
+from models import Location, ScheduleEntry, Attraction, Segment, Trip
 
 
 def test_location_fields(sample_location):
@@ -42,25 +42,25 @@ def test_attraction_with_assigned_dates(sample_attraction):
     assert sample_attraction.assigned_dates == [date(2026, 10, 2)]
 
 
-def test_leg_fields(sample_leg):
-    assert sample_leg.date_range == (date(2026, 10, 1), date(2026, 10, 7))
-    assert sample_leg.start_location.address == "Chicago, IL"
+def test_segment_fields(sample_segment):
+    assert sample_segment.date_range == (date(2026, 10, 1), date(2026, 10, 7))
+    assert sample_segment.start_location.address == "Chicago, IL"
 
 
 def test_trip_fields(sample_trip):
     assert sample_trip.date_range == (date(2026, 10, 1), date(2026, 10, 14))
+    assert sample_trip.home_base.address == "Chicago, IL"
     assert len(sample_trip.blackout_dates) == 1
-    assert len(sample_trip.legs) == 1
+    assert len(sample_trip.segments) == 1
     assert len(sample_trip.attractions) == 1
 
 
-def test_trip_no_legs():
+def test_trip_no_segments():
     trip = Trip(
         date_range=(date(2026, 10, 1), date(2026, 10, 14)),
-        start_location=Location("Chicago, IL", 41.8781, -87.6298),
-        end_location=Location("Chicago, IL", 41.8781, -87.6298),
+        home_base=Location("Chicago, IL", 41.8781, -87.6298),
         blackout_dates=[],
-        legs=[],
+        segments=[],
         attractions=[],
     )
-    assert trip.legs == []
+    assert trip.segments == []

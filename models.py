@@ -32,7 +32,7 @@ class Attraction:
 
 
 @dataclass
-class Leg:
+class Segment:
     date_range: tuple[date, date]
     start_location: Location
     end_location: Location
@@ -41,8 +41,7 @@ class Leg:
 @dataclass
 class Trip:
     date_range: tuple[date, date]
-    start_location: Location
-    end_location: Location
+    home_base: Location
     blackout_dates: list[date] = field(default_factory=list)
-    legs: list[Leg] = field(default_factory=list)
+    segments: list[Segment] = field(default_factory=list)
     attractions: list[Attraction] = field(default_factory=list)

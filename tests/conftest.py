@@ -1,7 +1,7 @@
 # tests/conftest.py
 import pytest
 from datetime import date, time
-from models import Location, ScheduleEntry, Attraction, Leg, Trip
+from models import Location, ScheduleEntry, Attraction, Segment, Trip
 
 
 @pytest.fixture
@@ -43,8 +43,8 @@ def sample_attraction(sample_location, sample_schedule_entries):
 
 
 @pytest.fixture
-def sample_leg():
-    return Leg(
+def sample_segment():
+    return Segment(
         date_range=(date(2026, 10, 1), date(2026, 10, 7)),
         start_location=Location("Chicago, IL", 41.8781, -87.6298),
         end_location=Location("Chicago, IL", 41.8781, -87.6298),
@@ -52,12 +52,11 @@ def sample_leg():
 
 
 @pytest.fixture
-def sample_trip(sample_attraction, sample_leg):
+def sample_trip(sample_attraction, sample_segment):
     return Trip(
         date_range=(date(2026, 10, 1), date(2026, 10, 14)),
-        start_location=Location("Chicago, IL", 41.8781, -87.6298),
-        end_location=Location("Chicago, IL", 41.8781, -87.6298),
+        home_base=Location("Chicago, IL", 41.8781, -87.6298),
         blackout_dates=[date(2026, 10, 5)],
-        legs=[sample_leg],
+        segments=[sample_segment],
         attractions=[sample_attraction],
     )

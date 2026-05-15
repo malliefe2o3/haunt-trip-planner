@@ -1,68 +1,62 @@
 {% extends "base.html" %}
-{% block title %}Setup — Haunt Trip Planner{% endblock %}
+{% block title %}Trip Dates — Haunt Trip Planner{% endblock %}
 
 {% block content %}
 <section class="card">
     <h2>Trip Dates</h2>
-    <div class="form-row">
-        <div class="form-group">
-            <label for="start-date">Start Date</label>
-            <input type="date" id="start-date" value="2026-10-01">
-        </div>
-        <div class="form-group">
-            <label for="end-date">End Date</label>
-            <input type="date" id="end-date" value="2026-10-14">
-        </div>
-    </div>
-</section>
+    <p style="color:#888; margin-bottom:12px;">Click to set your start date, then click again to set your end date.</p>
+    <div id="trip-date-calendar"></div>
+    <input type="hidden" id="start-date">
+    <input type="hidden" id="end-date">
 
-<section class="card">
-    <h2>Locations</h2>
-    <div class="form-row">
-        <div class="form-group">
-            <label for="start-location">Start Location</label>
-            <input type="text" id="start-location" placeholder="e.g. Chicago, IL">
-        </div>
-        <div class="form-group">
-            <label for="end-location">End Location</label>
-            <input type="text" id="end-location" placeholder="e.g. Chicago, IL">
-        </div>
-    </div>
+    <h3 style="margin-top: 24px;">Trip Segments <small>(optional — set date windows with specific start and end locations)</small></h3>
+    <div id="legs-list"></div>
+    <button class="btn btn-secondary" onclick="addLeg()">+ Add Segment</button>
 </section>
 
 <section class="card">
     <h2>Blackout Dates</h2>
-    <div id="blackout-list"></div>
-    <div class="form-row">
-        <div class="form-group">
-            <input type="date" id="blackout-input">
-        </div>
-        <button class="btn btn-secondary" onclick="addBlackout()">Add Blackout</button>
-    </div>
+    <p style="color:#888; margin-bottom:12px;">Click dates to mark them as unavailable for visiting attractions.</p>
+    <div id="blackout-calendar"></div>
 </section>
 
-<section class="card">
-    <h2>Trip Legs <small>(optional)</small></h2>
-    <div id="legs-list"></div>
-    <button class="btn btn-secondary" onclick="addLeg()">+ Add Leg</button>
-</section>
-
-<section class="card">
-    <h2>Claude API Key <small>(optional)</small></h2>
-    <div class="form-group">
-        <input type="password" id="api-key" placeholder="sk-ant-...">
-        <small>Enables AI-powered schedule parsing for better accuracy.</small>
-    </div>
-</section>
-
-<button class="btn btn-primary" onclick="saveTrip()">Save &amp; Continue</button>
+<button class="btn btn-primary" onclick="saveDates()">Save &amp; Continue</button>
 <div id="setup-status" class="status-message"></div>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Page-specific init if needed
+document.addEventListener('DOMContentLoaded', function() {
+    window.tripDateCal = new CalendarPicker("trip-date-calendar", {
+        mode: "range",
+        initialYear: 2026,
+        initialMonth: 8,
+        onSelect: function(range) {
+            document.getElementById("start-date").value = range.start || "";
+            document.getElementById("end-date").value = range.end || "";
+        }
     });
+
+    window.blackoutCal = new CalendarPicker("blackout-calendar", {
+        mode: "toggle",
+        initialYear: 2026,
+        initialMonth: 8,
+        selected: blackoutDates,
+        onSelect: function(dates) {
+            blackoutDates = dates;
+        },
+        renderExtra: function(el) {
+            if (blackoutDates.length === 0) return;
+            var sorted = blackoutDates.slice().sort();
+            el.innerHTML = '<div style="color:#aaa; font-size:0.8em; margin-bottom:4px;">Selected blackout dates:</div>';
+            sorted.forEach(function(d, i) {
+                var tag = document.createElement("span");
+                tag.className = "tag";
+                tag.innerHTML = formatDate(d) + ' <span class="remove-tag" onclick="blackoutDates.splice(' + blackoutDates.indexOf(d) + ',1); window.blackoutCal.selected=blackoutDates; window.blackoutCal.render();">x</span>';
+                el.appendChild(tag);
+            });
+        }
+    });
+});
 </script>
 {% endblock %}

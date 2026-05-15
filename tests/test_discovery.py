@@ -39,10 +39,9 @@ def test_deduplicate_different_names():
 def test_find_gap_nights():
     trip = Trip(
         date_range=(date(2026, 10, 1), date(2026, 10, 5)),
-        start_location=Location("Chicago", 41.87, -87.63),
-        end_location=Location("Chicago", 41.87, -87.63),
+        home_base=Location("Chicago", 41.87, -87.63),
         blackout_dates=[date(2026, 10, 2)],
-        legs=[], attractions=[],
+        segments=[], attractions=[],
     )
     scheduled_dates = {date(2026, 10, 1), date(2026, 10, 4)}
     gaps = find_gap_nights(trip, scheduled_dates)

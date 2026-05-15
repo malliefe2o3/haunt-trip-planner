@@ -7,6 +7,16 @@
     <p>Review the scraped data below. Edit any fields that look incorrect, then generate the itinerary.</p>
 </section>
 
+<section class="card">
+    <h2>Import Schedule Data</h2>
+    <p style="color:#888; margin-bottom:12px;">Upload a CSV with columns: <strong>Name</strong>, <strong>Date</strong>, <strong>Open</strong>, <strong>Close</strong>, <strong>Price</strong>, <strong>Ticket URL</strong></p>
+    <div class="form-row" style="align-items:center;">
+        <input type="file" id="schedule-csv-file" accept=".csv" style="flex:1;">
+        <button class="btn btn-secondary" onclick="importScheduleCSV()">Import Schedules</button>
+    </div>
+    <div id="schedule-csv-status" class="status-message"></div>
+</section>
+
 <div id="review-cards">
     <div class="spinner"></div>
     <p class="loading-text">Loading scraped data...</p>

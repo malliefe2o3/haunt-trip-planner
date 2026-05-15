@@ -4,22 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Haunt Trip Planner{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="grain"></div>
     <div class="fog"></div>
-    <div class="cobweb cobweb-top-left"></div>
-    <div class="cobweb cobweb-top-right"></div>
+    <div class="vignette"></div>
 
     <div class="container">
-        <h1 class="drip-text">Haunt Trip Planner</h1>
+        <div class="site-header">
+            <div class="header-ornament">&#10056;</div>
+            <h1 class="site-title">Haunt Trip Planner</h1>
+            <p class="site-subtitle">Chart your path through the darkness</p>
+            <div class="header-rule"></div>
+        </div>
 
         <nav class="nav-bar">
-            <a href="/setup" class="nav-link {% if request.path in ['/', '/setup'] %}active{% endif %}">Setup</a>
-            <a href="/attractions" class="nav-link {% if request.path == '/attractions' %}active{% endif %}">Attractions</a>
-            <a href="/review" class="nav-link {% if request.path == '/review' %}active{% endif %}">Review</a>
-            <a href="/itinerary" class="nav-link {% if request.path == '/itinerary' %}active{% endif %}">Itinerary</a>
-            <a href="/export-view" class="nav-link {% if request.path == '/export-view' %}active{% endif %}">Export</a>
+            <a href="/setup" class="nav-link {% if request.path in ['/', '/setup'] %}active{% endif %}"><span class="nav-step">I</span>Dates</a>
+            <a href="/locations" class="nav-link {% if request.path == '/locations' %}active{% endif %}"><span class="nav-step">II</span>Locations</a>
+            <a href="/attractions" class="nav-link {% if request.path == '/attractions' %}active{% endif %}"><span class="nav-step">III</span>Attractions</a>
+            <a href="/review" class="nav-link {% if request.path == '/review' %}active{% endif %}"><span class="nav-step">IV</span>Review</a>
+            <a href="/itinerary" class="nav-link {% if request.path == '/itinerary' %}active{% endif %}"><span class="nav-step">V</span>Itinerary</a>
+            <a href="/export-view" class="nav-link {% if request.path == '/export-view' %}active{% endif %}"><span class="nav-step">VI</span>Export</a>
         </nav>
 
         <main>

@@ -1,7 +1,7 @@
 # tests/test_optimizer.py
 import pytest
 from datetime import date, time
-from models import Location, ScheduleEntry, Attraction, Leg, Trip
+from models import Location, ScheduleEntry, Attraction, Segment, Trip
 from optimizer import filter_eligible_dates, build_clusters
 
 
@@ -18,12 +18,11 @@ def _make_attraction(name, lat, lng, schedule_dates, assigned_dates=None):
     )
 
 
-def _make_trip(attractions, blackout_dates=None, legs=None):
+def _make_trip(attractions, blackout_dates=None, segments=None):
     return Trip(
         date_range=(date(2026, 10, 1), date(2026, 10, 14)),
-        start_location=Location("Chicago, IL", 41.8781, -87.6298),
-        end_location=Location("Chicago, IL", 41.8781, -87.6298),
-        blackout_dates=blackout_dates or [], legs=legs or [], attractions=attractions,
+        home_base=Location("Chicago, IL", 41.8781, -87.6298),
+        blackout_dates=blackout_dates or [], segments=segments or [], attractions=attractions,
     )
 
 
@@ -56,16 +55,16 @@ def test_filter_locks_assigned_dates():
     assert eligible["A"] == [date(2026, 10, 3)]
 
 
-def test_filter_with_legs():
-    # Leg covers Oct 1-7; attraction open Oct 3 and Oct 10
-    # Oct 3 is in the leg's range, Oct 10 is outside → only Oct 3 eligible
+def test_filter_with_segments():
+    # Segment covers Oct 1-7; attraction open Oct 3 and Oct 10
+    # Oct 3 is in the segment's range, Oct 10 is outside → only Oct 3 eligible
     a = _make_attraction("A", 41.88, -87.63, [date(2026, 10, 3), date(2026, 10, 10)])
-    leg = Leg(
+    seg = Segment(
         date_range=(date(2026, 10, 1), date(2026, 10, 7)),
         start_location=Location("Chicago, IL", 41.8781, -87.6298),
         end_location=Location("Chicago, IL", 41.8781, -87.6298),
     )
-    trip = _make_trip([a], legs=[leg])
+    trip = _make_trip([a], segments=[seg])
     eligible = filter_eligible_dates(trip)
     assert eligible["A"] == [date(2026, 10, 3)]
 

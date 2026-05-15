@@ -21,6 +21,16 @@
 </section>
 
 <section class="card">
+    <h2>Import from CSV</h2>
+    <p style="color:#888; margin-bottom:12px;">Upload a CSV with columns: <strong>Name</strong>, <strong>Address</strong>, <strong>Schedule URL</strong>, <strong>Scheduled Date (Optional)</strong></p>
+    <div class="form-row" style="align-items:center;">
+        <input type="file" id="csv-file" accept=".csv" style="flex:1;">
+        <button class="btn btn-secondary" onclick="importCSV()">Import</button>
+    </div>
+    <div id="csv-status" class="status-message"></div>
+</section>
+
+<section class="card">
     <h2>Added Attractions</h2>
     <div id="attractions-list">
         <p class="empty-state">No attractions added yet.</p>

@@ -196,9 +196,16 @@ When a user manually adjusts an attraction's date assignment:
 
 ## Discovery Engine
 
-### Data Source
+### Data Sources
 
-Scrape a haunted attraction directory (e.g., TheScareFactor.com) for attractions in the geographic region of the user's trip. Cache results for the session.
+Scrape multiple haunted attraction directories for attractions in the geographic region of the user's trip:
+
+- **TheScareFactor.com** — comprehensive listings with ratings and reviews
+- **HauntWorld.com** — major directory with location-based search
+- **HauntedHouseAssociation.org** — industry association listings
+- **HauntedHouseRatings.com** — community-rated listings
+
+Results are de-duplicated across directories by matching on name + proximity (two listings within 1 mile with similar names are treated as the same attraction). Cache the merged results for the session so we don't re-scrape on every re-optimization.
 
 ### Two Types of Suggestions
 
