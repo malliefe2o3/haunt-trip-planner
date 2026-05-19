@@ -16,16 +16,41 @@ A local web app that helps haunted attraction enthusiasts optimize multi-night h
 
 ## Setup
 
-**Requirements:** Python 3.9+
+**Requirements:** Python 3.9+ ([download Python here](https://www.python.org/downloads/) if you don't have it)
+
+### 1. Download the code
+
+[**Download ZIP**](https://github.com/malliefe2o3/haunt-trip-planner/archive/refs/heads/main.zip)
+
+Once downloaded, unzip the folder and note where it is on your computer (e.g. your Downloads folder).
+
+### 2. Open a terminal
+
+- **Mac:** Open the **Terminal** app (search for "Terminal" in Spotlight)
+- **Windows:** Open **Command Prompt** (search for "cmd" in the Start menu)
+
+**Important:** These are terminal commands, not Python — don't type them into Python itself.
+
+### 3. Navigate to the folder and run
+
+Replace the path below with wherever you unzipped the folder:
 
 ```bash
-git clone https://github.com/malliefe2o3/haunt-trip-planner.git
-cd haunt-trip-planner
+cd ~/Downloads/haunt-trip-planner-main
 pip install -r requirements.txt
 python hauntplanner.py
 ```
 
-Open **http://localhost:5000** in your browser.
+On Windows the path will look more like:
+```bash
+cd %USERPROFILE%\Downloads\haunt-trip-planner-main
+pip install -r requirements.txt
+python hauntplanner.py
+```
+
+### 4. Open the app
+
+Once running, open **http://localhost:5000** in your browser.
 
 ## How It Works
 
