@@ -41,9 +41,9 @@ pip install -r requirements.txt
 python hauntplanner.py
 ```
 
-On Windows the path will look more like:
-```bash
-cd %USERPROFILE%\Downloads\haunt-trip-planner-main
+On Windows, Command Prompt already starts in your user folder, so just type:
+```
+cd Downloads\haunt-trip-planner-main
 pip install -r requirements.txt
 python hauntplanner.py
 ```
