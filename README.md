@@ -37,20 +37,23 @@ Replace the path below with wherever you unzipped the folder:
 
 ```bash
 cd ~/Downloads/haunt-trip-planner-main
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 python hauntplanner.py
 ```
 
-On Windows, Command Prompt already starts in your user folder, so just type:
+On Windows, Command Prompt already starts in your user folder. Type each line one at a time, pressing Enter after each:
 ```
-cd Downloads\haunt-trip-planner-main
-pip install -r requirements.txt
+cd Downloads
+cd haunt-trip-planner-main
+python -m pip install -r requirements.txt
 python hauntplanner.py
 ```
+
+> **"No such file" error?** The unzipped folder name can vary — check what it's actually called in your Downloads folder and use that name instead.
 
 ### 4. Open the app
 
-Once running, open **http://localhost:5000** in your browser.
+Once running, you'll see a line that says `Running on http://127.0.0.1:5000`. Copy that URL and paste it into your browser to open the app.
 
 ## How It Works
 
