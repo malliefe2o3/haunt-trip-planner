@@ -1,0 +1,1342 @@
+[
+  {
+    "name": "Haunted Hoochie",
+    "address": "13861 Broad St SW, Pataskala, OH 43062",
+    "state": "OH",
+    "website": "https://www.hauntedhoochie.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-27", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "The Dent Schoolhouse",
+    "address": "5963 Harrison Ave, Cincinnati, OH 45248",
+    "state": "OH",
+    "website": "https://www.frightsite.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-20", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Factory of Terror",
+    "address": "4125 Mahoning Rd NE, Canton, OH 44705",
+    "state": "OH",
+    "website": "https://www.factoryofterror.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-27", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Land of Illusion Haunted Scream Park",
+    "address": "8762 Thomas Rd, Middletown, OH 45042",
+    "state": "OH",
+    "website": "https://www.landofillusion.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-20", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Six Flags Fright Fest – Worlds of Adventure (Ohio)",
+    "address": "1060 N Aurora Rd, Aurora, OH 44202",
+    "state": "OH",
+    "website": "https://www.sixflags.com/worldsofadventure/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-20", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 240
+  },
+  {
+    "name": "Eastern State Penitentiary Terror Behind the Walls",
+    "address": "2027 Fairmount Ave, Philadelphia, PA 19130",
+    "state": "PA",
+    "website": "https://www.easternstate.org/halloween",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Pennhurst Asylum",
+    "address": "1 Commonwealth Dr, Spring City, PA 19475",
+    "state": "PA",
+    "website": "https://www.pennhurstasylum.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-08"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Bates Motel and Haunted Hayride",
+    "address": "1835 N Middletown Rd, Glen Mills, PA 19342",
+    "state": "PA",
+    "website": "https://www.thebatesmotel.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Field of Screams",
+    "address": "191 College Ave, Mountville, PA 17554",
+    "state": "PA",
+    "website": "https://www.fieldofscreamspa.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-12", "end": "11-08"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Shocktober",
+    "address": "9 Creek Rd, Fort Washington, PA 19034",
+    "state": "PA",
+    "website": "https://www.shocktober.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Headless Horseman Hayrides and Haunted Houses",
+    "address": "778 Broadway, Ulster Park, NY 12487",
+    "state": "NY",
+    "website": "https://www.headlesshorseman.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Bloodshed Farms",
+    "address": "245 County Route 9, Ghent, NY 12075",
+    "state": "NY",
+    "website": "https://www.bloodshedfarms.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Nightmare New York",
+    "address": "636 6th Ave, New York, NY 10011",
+    "state": "NY",
+    "website": "https://www.nightmarenyc.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Sleepy Hollow Cemetery Historic Night Tours",
+    "address": "540 N Broadway, Sleepy Hollow, NY 10591",
+    "state": "NY",
+    "website": "https://www.sleepyhollowcemetery.org",
+    "genre": "trail",
+    "typical_season": {"start": "10-01", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Six Flags Great Adventure Fright Fest",
+    "address": "1 Six Flags Blvd, Jackson, NJ 08527",
+    "state": "NJ",
+    "website": "https://www.sixflags.com/greatadventure/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-06", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Shades of Death Road / Ghost Lake",
+    "address": "Shades of Death Rd, Hope, NJ 07844",
+    "state": "NJ",
+    "website": "https://www.hauntednj.com",
+    "genre": "trail",
+    "typical_season": {"start": "10-01", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Nockamixon Haunted Attraction",
+    "address": "1542 Mountain View Dr, Quakertown, PA 18951",
+    "state": "PA",
+    "website": "https://www.nockamixon.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Netherworld Haunted House",
+    "address": "1313 Maharaja Dr, Stone Mountain, GA 30083",
+    "state": "GA",
+    "website": "https://www.fearworld.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Six Flags Over Georgia Fright Fest",
+    "address": "275 Riverside Pkwy SW, Austell, GA 30168",
+    "state": "GA",
+    "website": "https://www.sixflags.com/overgeorgia/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-13", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 240
+  },
+  {
+    "name": "Arasapha Farm Haunted Hayride",
+    "address": "1835 N Middletown Rd, Glen Mills, PA 19342",
+    "state": "PA",
+    "website": "https://www.arasaphafarm.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Warehouse of Horrors",
+    "address": "1 Warehouse Way, Macon, GA 31201",
+    "state": "GA",
+    "website": "https://www.warehouseofhorrors.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["friday", "saturday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Haunted Farm Lawrenceville",
+    "address": "2365 Lawrenceville Hwy, Lawrenceville, GA 30044",
+    "state": "GA",
+    "website": "https://www.hauntedfarm.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 75
+  },
+  {
+    "name": "Erebus Haunted Attraction",
+    "address": "18 S Perry St, Pontiac, MI 48342",
+    "state": "MI",
+    "website": "https://www.hauntedpontiac.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "The Slaughterhouse",
+    "address": "2855 E Grand Blvd, Detroit, MI 48211",
+    "state": "MI",
+    "website": "https://www.theslaughterhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Realm of Darkness",
+    "address": "48420 Van Dyke Ave, Shelby Township, MI 48317",
+    "state": "MI",
+    "website": "https://www.realmofdarkness.net",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Blackwood Manor Haunted House",
+    "address": "4450 Baldwin Rd, Auburn Hills, MI 48326",
+    "state": "MI",
+    "website": "https://www.blackwoodmanorhaunt.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Heston's Farm Market & Corn Maze",
+    "address": "9246 West D Ave, Kalamazoo, MI 49009",
+    "state": "MI",
+    "website": "https://www.hestonsfarm.com",
+    "genre": "corn_maze",
+    "typical_season": {"start": "09-12", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Statesville Haunted Prison",
+    "address": "17 W 130 Frontage Rd, Crest Hill, IL 60403",
+    "state": "IL",
+    "website": "https://www.statesvillehauntedprison.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-12", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Basement of the Dead",
+    "address": "42 W New York St, Aurora, IL 60506",
+    "state": "IL",
+    "website": "https://www.basementofthedead.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Naper Settlement Haunted Cemetery",
+    "address": "523 S Webster St, Naperville, IL 60540",
+    "state": "IL",
+    "website": "https://www.napersettlement.org",
+    "genre": "trail",
+    "typical_season": {"start": "10-01", "end": "10-31"},
+    "typical_days": ["friday", "saturday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Terror on the Fox",
+    "address": "227 N Broadway, Green Bay, WI 54303",
+    "state": "WI",
+    "website": "https://www.terroronthefox.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Six Flags Great America Fright Fest",
+    "address": "1 Great America Pkwy, Gurnee, IL 60031",
+    "state": "IL",
+    "website": "https://www.sixflags.com/greatamerica/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-13", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "13th Floor Haunted House – Chicago",
+    "address": "1 S Halsted St, Chicago, IL 60661",
+    "state": "IL",
+    "website": "https://www.13thfloorchicago.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Haunted Trails Amusement Park",
+    "address": "7759 Harlem Ave, Bridgeview, IL 60455",
+    "state": "IL",
+    "website": "https://www.hauntedtrails.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Knott's Scary Farm",
+    "address": "8039 Beach Blvd, Buena Park, CA 90620",
+    "state": "CA",
+    "website": "https://www.knotts.com/scary-farm",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-12", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Universal Studios Hollywood Halloween Horror Nights",
+    "address": "100 Universal City Plaza, Universal City, CA 91608",
+    "state": "CA",
+    "website": "https://www.halloweenhorrornights.com/hollywood",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-05", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Queen Mary's Dark Harbor",
+    "address": "1126 Queens Hwy, Long Beach, CA 90802",
+    "state": "CA",
+    "website": "https://www.queenmary.com/events/dark-harbor",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Fright Fest – Six Flags Magic Mountain",
+    "address": "26101 Magic Mountain Pkwy, Valencia, CA 91355",
+    "state": "CA",
+    "website": "https://www.sixflags.com/magicmountain/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-06", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Winchester Mystery House Fright Nights",
+    "address": "525 S Winchester Blvd, San Jose, CA 95128",
+    "state": "CA",
+    "website": "https://www.winchestermysteryhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-03", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "The 17th Door Haunt Experience",
+    "address": "1351 W Orangethorpe Ave, Fullerton, CA 92833",
+    "state": "CA",
+    "website": "https://www.the17thdoor.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-05", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Haunted Hotel San Diego",
+    "address": "2794 Historic Decatur Rd, San Diego, CA 92106",
+    "state": "CA",
+    "website": "https://www.hauntedhotelsd.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Six Flags Fiesta Texas Fright Fest",
+    "address": "17000 IH-10 W, San Antonio, TX 78257",
+    "state": "TX",
+    "website": "https://www.sixflags.com/fiestatexas/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-13", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Six Flags Over Texas Fright Fest",
+    "address": "2201 Road to Six Flags, Arlington, TX 76011",
+    "state": "TX",
+    "website": "https://www.sixflags.com/overtexas/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-13", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Nightmare on the Bayou",
+    "address": "2507 Airline Dr, Houston, TX 77051",
+    "state": "TX",
+    "website": "https://www.nightmareonthebayou.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Cutting Edge Haunted House",
+    "address": "1701 E Lancaster Ave, Fort Worth, TX 76103",
+    "state": "TX",
+    "website": "https://www.cuttingedgehauntedhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Screamworld",
+    "address": "9303 Katy Freeway, Houston, TX 77024",
+    "state": "TX",
+    "website": "https://www.screamworld.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "13th Floor – San Antonio",
+    "address": "16602 Nacogdoches Rd, San Antonio, TX 78247",
+    "state": "TX",
+    "website": "https://www.sanantonio13thfloor.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Fear Farm",
+    "address": "2209 W Pinnacle Peak Rd, Phoenix, AZ 85027",
+    "state": "AZ",
+    "website": "https://www.fearfarm.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Slaughterhouse Haunted Attraction – Tucson",
+    "address": "3450 S Broadmont Dr, Tucson, AZ 85713",
+    "state": "AZ",
+    "website": "https://www.tucsonslaughterhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "The Darkness Falls Haunted House",
+    "address": "16776 N Scottsdale Rd, Scottsdale, AZ 85254",
+    "state": "AZ",
+    "website": "https://www.darknessscottsdale.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Arizona Scream Park",
+    "address": "2929 W McDowell Rd, Phoenix, AZ 85009",
+    "state": "AZ",
+    "website": "https://www.arizonascreampark.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Chambers of Terror",
+    "address": "100 S Center St, Mesa, AZ 85210",
+    "state": "AZ",
+    "website": "https://www.chambersofterror.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Universal Studios Florida Halloween Horror Nights",
+    "address": "6000 Universal Blvd, Orlando, FL 32819",
+    "state": "FL",
+    "website": "https://www.halloweenhorrornights.com/orlando",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-05", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Busch Gardens Tampa Howl-O-Scream",
+    "address": "10165 N McKinley Dr, Tampa, FL 33612",
+    "state": "FL",
+    "website": "https://www.buschgardens.com/tampa/howl-o-scream",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-05", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Fright Nights at the South Florida Fair",
+    "address": "9067 Southern Blvd, West Palm Beach, FL 33411",
+    "state": "FL",
+    "website": "https://www.frightnightsfair.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-10", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "The Shallow Grave",
+    "address": "7510 State Rd 52, Hudson, FL 34667",
+    "state": "FL",
+    "website": "https://www.theshallowgrave.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Bloodbath Horror Nights",
+    "address": "14750 S Orange Blossom Trail, Orlando, FL 32837",
+    "state": "FL",
+    "website": "https://www.bloodbathhorrornights.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Nightmare Haunted House",
+    "address": "6400 N Andrews Ave, Fort Lauderdale, FL 33309",
+    "state": "FL",
+    "website": "https://www.nightmarefl.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Reaper's Realm",
+    "address": "3530 Irwin Simpson Rd, Mason, OH 45040",
+    "state": "OH",
+    "website": "https://www.reapers-realm.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "ScareHouse",
+    "address": "118 W 8th Ave, Etna, PA 15223",
+    "state": "PA",
+    "website": "https://www.scarehouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-05", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Spookyworld Presents Nightmare New England",
+    "address": "145 Chestnut St, Berlin, MA 01503",
+    "state": "MA",
+    "website": "https://www.nightmarenewengland.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Witch's Woods",
+    "address": "21 Clyde Martin Dr, Westford, MA 01886",
+    "state": "MA",
+    "website": "https://www.witchswoods.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "The Haunted Houghton Mansion",
+    "address": "172 Church St, North Adams, MA 01247",
+    "state": "MA",
+    "website": "https://www.hauntedhoughtonmansion.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-04", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Middleton's Haunted Halloween Hayride",
+    "address": "205 Forest St, Middleton, MA 01949",
+    "state": "MA",
+    "website": "https://www.middletonhauntedhalloween.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Edge of Hell Haunted House",
+    "address": "1300 W 12th St, Kansas City, MO 64101",
+    "state": "MO",
+    "website": "https://www.edgeofhell.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "The Darkness Haunted House",
+    "address": "1525 S 8th St, St. Louis, MO 63104",
+    "state": "MO",
+    "website": "https://www.scarefest.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Lemp Haunted House",
+    "address": "3322 Lemp Ave, St. Louis, MO 63118",
+    "state": "MO",
+    "website": "https://www.lemphauntedhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Worlds of Fun Haunt",
+    "address": "4545 Worlds of Fun Ave, Kansas City, MO 64161",
+    "state": "MO",
+    "website": "https://www.worldsoffun.com/play/haunt",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-27", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 240
+  },
+  {
+    "name": "Creepyworld",
+    "address": "3400 McNutt Rd, Fenton, MO 63026",
+    "state": "MO",
+    "website": "https://www.creepyworld.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Elitch Gardens Fright Fest",
+    "address": "2000 Elitch Cir, Denver, CO 80204",
+    "state": "CO",
+    "website": "https://www.elitchgardens.com/play/events/fright-fest",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-20", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 240
+  },
+  {
+    "name": "13th Floor – Denver",
+    "address": "3400 E 52nd Ave, Denver, CO 80216",
+    "state": "CO",
+    "website": "https://www.denver13thfloor.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-08"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Haunted Mines",
+    "address": "425 W Colorado Ave, Colorado Springs, CO 80905",
+    "state": "CO",
+    "website": "https://www.hauntedmines.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Bane Haunted House",
+    "address": "500 W 48th Ave, Denver, CO 80216",
+    "state": "CO",
+    "website": "https://www.banehauntedhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Frightmare Compound",
+    "address": "6620 N Washington St, Denver, CO 80229",
+    "state": "CO",
+    "website": "https://www.frightmarecompound.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Hayride – Los Angeles",
+    "address": "4600 Crystal Springs Dr, Los Angeles, CA 90027",
+    "state": "CA",
+    "website": "https://www.lahauntedhayride.com",
+    "genre": "hayride",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Hollow",
+    "address": "3200 Pioneer Ave, Woodland, CA 95776",
+    "state": "CA",
+    "website": "https://www.hauntedhollow.net",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Nightmare Haunted House – Richmond",
+    "address": "4901 Bethlehem Rd, Richmond, VA 23230",
+    "state": "VA",
+    "website": "https://www.nightmarerichmondva.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Busch Gardens Williamsburg Howl-O-Scream",
+    "address": "1 Busch Gardens Blvd, Williamsburg, VA 23185",
+    "state": "VA",
+    "website": "https://www.buschgardens.com/williamsburg/howl-o-scream",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-06", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Haunted Caverns",
+    "address": "970 Caverns Rd, Luray, VA 22835",
+    "state": "VA",
+    "website": "https://www.luraycaverns.com/halloween",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Creepy Crawl Haunted Pub Tours",
+    "address": "412 N 2nd St, Richmond, VA 23219",
+    "state": "VA",
+    "website": "https://www.creepycrawl.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Haunted Overload",
+    "address": "68 Exeter Rd, Lee, NH 03861",
+    "state": "NH",
+    "website": "https://www.hauntedoverload.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Carolina Fear Fest",
+    "address": "1801 Westbrook Plaza Dr, Winston-Salem, NC 27103",
+    "state": "NC",
+    "website": "https://www.carolinafearfest.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Scarowinds",
+    "address": "300 Carowinds Blvd, Charlotte, NC 28273",
+    "state": "NC",
+    "website": "https://www.carowinds.com/events/scarowinds",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Spooky Woods at Kersey Valley",
+    "address": "1615 Kersey Valley Rd, Archdale, NC 27263",
+    "state": "NC",
+    "website": "https://www.kerseyvalley.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-19", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Grimm Farm",
+    "address": "3021 Concord Rd, Salisbury, NC 28146",
+    "state": "NC",
+    "website": "https://www.grimmfarm.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Wraith Haunted Attraction",
+    "address": "8110 Glenwood Ave, Raleigh, NC 27612",
+    "state": "NC",
+    "website": "https://www.wraithhaunt.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Dollarama Haunted House",
+    "address": "2920 Nolensville Pike, Nashville, TN 37211",
+    "state": "TN",
+    "website": "https://www.dollaramahauntedhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Nashville Nightmare",
+    "address": "816 Blue Lake Dr, Madison, TN 37115",
+    "state": "TN",
+    "website": "https://www.nashvillenightmare.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Darkness Haunted House – Knoxville",
+    "address": "5815 Kingston Pike, Knoxville, TN 37919",
+    "state": "TN",
+    "website": "https://www.darknessknoxville.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Haunted Hollow – Chattanooga",
+    "address": "4241 Brainerd Rd, Chattanooga, TN 37411",
+    "state": "TN",
+    "website": "https://www.hauntedchattanooga.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Dollywood Smoky Mountain Christmas Harvest Festival (Hallow-Screams)",
+    "address": "2700 Dollywood Parks Blvd, Pigeon Forge, TN 37863",
+    "state": "TN",
+    "website": "https://www.dollywood.com",
+    "genre": "theme_park_haunt",
+    "typical_season": {"start": "09-26", "end": "10-31"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 300
+  },
+  {
+    "name": "Wisconsin Fear Grounds",
+    "address": "W194 N11301 Appleton Ave, Germantown, WI 53022",
+    "state": "WI",
+    "website": "https://www.feargrounds.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "The Strangling Brothers Haunted Circus",
+    "address": "4141 Vanson Ave, West Salem, WI 54669",
+    "state": "WI",
+    "website": "https://www.stranglingbrothers.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Old Windmill Farm Corn Maze",
+    "address": "3060 County Road D, Cottage Grove, WI 53527",
+    "state": "WI",
+    "website": "https://www.oldwindmillfarm.com",
+    "genre": "corn_maze",
+    "typical_season": {"start": "09-12", "end": "10-31"},
+    "typical_days": ["saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Scare Farm",
+    "address": "8701 Hwy 51 S, Minocqua, WI 54548",
+    "state": "WI",
+    "website": "https://www.scarefarm.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Ravenwood Castle Haunted Weekend",
+    "address": "65666 Bethel Rd, New Plymouth, OH 45654",
+    "state": "OH",
+    "website": "https://www.ravenwoodcastle.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "10-01", "end": "10-31"},
+    "typical_days": ["friday", "saturday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Hills Hospital",
+    "address": "6801 Industrial Pkwy, Portage, IN 46368",
+    "state": "IN",
+    "website": "https://www.hauntedhillshospital.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Indy Scream Park",
+    "address": "8901 N 600 W, McCordsville, IN 46055",
+    "state": "IN",
+    "website": "https://www.indyscreampark.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Headless Hollow",
+    "address": "4935 S State Road 67, Pendleton, IN 46064",
+    "state": "IN",
+    "website": "https://www.headlesshollow.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Fort",
+    "address": "5540 US-35, Monticello, IN 47960",
+    "state": "IN",
+    "website": "https://www.haunted-fort.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Shriek House",
+    "address": "409 N Emerson Ave, Greenwood, IN 46143",
+    "state": "IN",
+    "website": "https://www.shriekhouse.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Fright Town",
+    "address": "777 NE Martin Luther King Jr Blvd, Portland, OR 97232",
+    "state": "OR",
+    "website": "https://www.frighttown.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Reaper's Ridgeline Haunted Attraction",
+    "address": "15300 S Henrici Rd, Oregon City, OR 97045",
+    "state": "OR",
+    "website": "https://www.reapersridgeline.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "The Haunted Maze",
+    "address": "2200 Silverton Rd NE, Salem, OR 97301",
+    "state": "OR",
+    "website": "https://www.hauntedmazeoregon.com",
+    "genre": "corn_maze",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Forbidden Forest Haunted Attraction",
+    "address": "19050 S Beavercreek Rd, Oregon City, OR 97045",
+    "state": "OR",
+    "website": "https://www.forbiddenforesthaunt.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Nightmare Factory",
+    "address": "12503 SE 2nd Cir, Vancouver, WA 98684",
+    "state": "WA",
+    "website": "https://www.nightmarefactoryhaunt.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Brighton Asylum",
+    "address": "2 Passaic St, Passaic, NJ 07055",
+    "state": "NJ",
+    "website": "https://www.brightonasylum.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-12", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Haunted Scarecrow Farms",
+    "address": "352 Schoolhouse Rd, Coopersburg, PA 18036",
+    "state": "PA",
+    "website": "https://www.hauntedscarecrowfarms.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Acres",
+    "address": "3399 State Route 94, Hamburg, NJ 07419",
+    "state": "NJ",
+    "website": "https://www.hauntedacres.net",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Hollow – Glendale",
+    "address": "6501 N 56th Ave, Glendale, AZ 85301",
+    "state": "AZ",
+    "website": "https://www.hauntedhollowinaz.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Atlanta Zombie Apocalypse",
+    "address": "2860 Marietta Hwy, Canton, GA 30114",
+    "state": "GA",
+    "website": "https://www.atlantazombieapocalypse.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Nightmare Penitentiary",
+    "address": "415 S Main St, Rockford, IL 61101",
+    "state": "IL",
+    "website": "https://www.nightmarepenitentiary.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Haunted Farm West Lafayette",
+    "address": "1799 US-52, West Lafayette, IN 47906",
+    "state": "IN",
+    "website": "https://www.hauntedfarmindiana.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Schoolhouse & Laboratory",
+    "address": "1300 Triplett Blvd, Akron, OH 44306",
+    "state": "OH",
+    "website": "https://www.hauntedschoollaboratory.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Stanley Hotel Ghost Tour",
+    "address": "333 E Wonderview Ave, Estes Park, CO 80517",
+    "state": "CO",
+    "website": "https://www.stanleyhotel.com/ghost-tours",
+    "genre": "trail",
+    "typical_season": {"start": "09-01", "end": "11-15"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "The Fear Experience",
+    "address": "9000 NE 4th Ave, Miami Shores, FL 33138",
+    "state": "FL",
+    "website": "https://www.fearexperience.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Gray Ghost Haunted Trail",
+    "address": "2850 Reidsville Rd, Greensboro, NC 27407",
+    "state": "NC",
+    "website": "https://www.grayghosttrail.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Memphis Dungeon",
+    "address": "310 Beale St, Memphis, TN 38103",
+    "state": "TN",
+    "website": "https://www.memphisdungeon.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 30
+  },
+  {
+    "name": "Haunted Maize Corn Maze",
+    "address": "2751 S Fowler Ave, Fresno, CA 93725",
+    "state": "CA",
+    "website": "https://www.hauntedmaize.com",
+    "genre": "corn_maze",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Haunted Hayride at Rock Stream Farms",
+    "address": "5080 Benton Center Rd, Benton Center, MI 49022",
+    "state": "MI",
+    "website": "https://www.rockstreamfarms.com",
+    "genre": "hayride",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Trail of Terror",
+    "address": "9505 Dunkirk Ave S, Cottage Grove, MN 55016",
+    "state": "MN",
+    "website": "https://www.trailofterror.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Scream A Geddon Horror Park",
+    "address": "38606 County Road 575, Dade City, FL 33523",
+    "state": "FL",
+    "website": "https://www.screamagedon.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-12", "end": "11-08"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 120
+  },
+  {
+    "name": "Shocktoberfest",
+    "address": "399 High St, Sinking Spring, PA 19608",
+    "state": "PA",
+    "website": "https://www.shocktoberfest.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-19", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "House of Torment",
+    "address": "2632 Ridgepoint Dr, Austin, TX 78754",
+    "state": "TX",
+    "website": "https://www.houseoftorment.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Anderson Farms Corn Maze",
+    "address": "6728 County Road 3 1/4, Erie, CO 80516",
+    "state": "CO",
+    "website": "https://www.andersonfarms.com",
+    "genre": "corn_maze",
+    "typical_season": {"start": "09-12", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Haunted Hotel at the Irwin House",
+    "address": "3960 Memorial Dr, Decatur, GA 30032",
+    "state": "GA",
+    "website": "https://www.hauntedhotelatlanta.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "The Haunted Mill",
+    "address": "6020 State Route 104, Amherst, OH 44001",
+    "state": "OH",
+    "website": "https://www.hauntedmill.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Fear Factory",
+    "address": "666 W 800 S, Salt Lake City, UT 84104",
+    "state": "UT",
+    "website": "https://www.fearfactoryslc.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Fright Kingdom",
+    "address": "8 Collaborative Way, Nashua, NH 03062",
+    "state": "NH",
+    "website": "https://www.frightkingdom.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-02"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Terror Trail at Ragged Hill",
+    "address": "120 Ragged Hill Rd, Worcester, MA 01602",
+    "state": "MA",
+    "website": "https://www.terrortrailma.com",
+    "genre": "trail",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  },
+  {
+    "name": "Shades of Death Trail",
+    "address": "Shades of Death Rd, Great Meadows, NJ 07838",
+    "state": "NJ",
+    "website": "https://www.hauntednj.com/shades",
+    "genre": "trail",
+    "typical_season": {"start": "10-01", "end": "10-31"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Horseman's Hollow at Philipsburg Manor",
+    "address": "381 N Broadway, Sleepy Hollow, NY 10591",
+    "state": "NY",
+    "website": "https://www.hudsonvalley.org/events/horsemans-hollow",
+    "genre": "trail",
+    "typical_season": {"start": "10-01", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 60
+  },
+  {
+    "name": "Fearlandia",
+    "address": "12321 NE Marx St, Portland, OR 97230",
+    "state": "OR",
+    "website": "https://www.fearlandia.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["thursday", "friday", "saturday", "sunday"],
+    "estimated_duration_min": 90
+  },
+  {
+    "name": "Dominion of Terror",
+    "address": "3821 Williamsburg Rd, Richmond, VA 23231",
+    "state": "VA",
+    "website": "https://www.dominionofterror.com",
+    "genre": "haunted_house",
+    "typical_season": {"start": "09-26", "end": "11-01"},
+    "typical_days": ["friday", "saturday", "sunday"],
+    "estimated_duration_min": 45
+  }
+]

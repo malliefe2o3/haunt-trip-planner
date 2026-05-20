@@ -185,6 +185,7 @@ class ItineraryEntry:
     price: Optional[float] = None
     ticket_url: Optional[str] = None
     drive_time_min: Optional[int] = None
+    duration_min: int = 45
     bumped: bool = False
     bump_reason: str = ""
 
@@ -297,11 +298,11 @@ def assign_time_slots(
     target_date: date,
     trip: Optional[Trip] = None,
 ) -> List[ItineraryEntry]:
-    dated: List[Tuple[Attraction, time, time, Optional[float], Optional[str]]] = []
+    dated: List[Tuple[Attraction, time, time, Optional[float], Optional[str], int]] = []
     for a in attractions:
         for entry in a.schedule:
             if entry.date == target_date:
-                dated.append((a, entry.open_time, entry.close_time, entry.price, entry.ticket_url))
+                dated.append((a, entry.open_time, entry.close_time, entry.price, entry.ticket_url, entry.duration_min))
                 break
 
     if not dated:
@@ -324,8 +325,9 @@ def assign_time_slots(
     entries: List[ItineraryEntry] = []
     prev_attraction: Optional[Attraction] = None
     prev_arrival_min: Optional[int] = None
+    prev_duration: int = 45
 
-    for a, open_time, close_time, price, ticket_url in dated:
+    for a, open_time, close_time, price, ticket_url, dur_min in dated:
         close_min = _time_to_minutes(close_time)
         cur_drive_min = None
 
@@ -335,7 +337,7 @@ def assign_time_slots(
             dist = haversine_miles(prev_attraction.lat, prev_attraction.lng, a.lat, a.lng)
             drive_min = drive_time_minutes(dist)
             cur_drive_min = round(drive_min)
-            arrival_min = prev_arrival_min + 45 + cur_drive_min
+            arrival_min = prev_arrival_min + prev_duration + cur_drive_min
 
         entry = ItineraryEntry(
             attraction=a,
@@ -346,17 +348,19 @@ def assign_time_slots(
             price=price,
             ticket_url=ticket_url,
             drive_time_min=cur_drive_min,
+            duration_min=dur_min,
         )
 
-        if arrival_min > close_min - 45:
+        if arrival_min > close_min - dur_min:
             entry.bumped = True
             entry.bump_reason = (
                 f"Would arrive at {_minutes_to_time(arrival_min).strftime('%H:%M')}, "
-                f"but close is {close_time.strftime('%H:%M')} (need 45 min minimum)"
+                f"but close is {close_time.strftime('%H:%M')} (need {dur_min} min minimum)"
             )
         else:
             prev_attraction = a
             prev_arrival_min = arrival_min
+            prev_duration = dur_min
 
         entries.append(entry)
 

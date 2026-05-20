@@ -43,6 +43,7 @@ class ScrapedSchedule:
     time_ranges: list
     prices: list
     ticket_urls: list
+    duration_min: Optional[int] = None
 
     @property
     def confidence(self) -> str:
@@ -169,6 +170,28 @@ def parse_prices_from_text(text: str) -> list:
     return [float(p) for p in re.findall(pattern, text)]
 
 
+def parse_duration_from_text(text: str) -> Optional[int]:
+    patterns = [
+        r"(\d+)\s*[-–—to]+\s*(\d+)\s*min(?:ute)?s?\s*(?:long|duration|walkthrough|experience|tour)",
+        r"(?:duration|walkthrough|experience|tour|lasts?|takes?|approximately|approx\.?|about|around)\s*[:.]?\s*(\d+)\s*[-–—to]+\s*(\d+)\s*min",
+        r"(?:duration|walkthrough|experience|tour|lasts?|takes?|approximately|approx\.?|about|around)\s*[:.]?\s*(\d+)\s*min",
+        r"(\d+)\s*min(?:ute)?s?\s*(?:walkthrough|experience|tour|long)",
+        r"(\d+)\s*[-–—]\s*(\d+)\s*min(?:ute)?s?",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, re.IGNORECASE)
+        if match:
+            groups = match.groups()
+            if len(groups) == 2 and groups[1]:
+                return (int(groups[0]) + int(groups[1])) // 2
+            return int(groups[0])
+    hour_pattern = r"(?:duration|walkthrough|experience|tour|lasts?|takes?)\s*[:.]?\s*(\d+(?:\.\d+)?)\s*hours?"
+    match = re.search(hour_pattern, text, re.IGNORECASE)
+    if match:
+        return round(float(match.group(1)) * 60)
+    return None
+
+
 def find_ticket_links(html: str) -> list:
     soup = BeautifulSoup(html, "html.parser")
     links = set()
@@ -199,6 +222,7 @@ def scrape_schedule(url: str, year: int) -> ScrapedSchedule:
         time_ranges=parse_times_from_text(text),
         prices=parse_prices_from_text(text),
         ticket_urls=find_ticket_links(html),
+        duration_min=parse_duration_from_text(text),
     )
 
 

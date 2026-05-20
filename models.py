@@ -11,6 +11,8 @@ class Location:
     lng: float
 
 
+SIX_FLAGS_MIN_DURATION = 180
+
 @dataclass
 class ScheduleEntry:
     date: date
@@ -18,6 +20,13 @@ class ScheduleEntry:
     close_time: time
     price: Optional[float] = None
     ticket_url: Optional[str] = None
+    duration_min: int = 45
+
+
+def default_duration_for_name(name: str) -> int:
+    if "six flags" in name.lower():
+        return SIX_FLAGS_MIN_DURATION
+    return 45
 
 
 @dataclass

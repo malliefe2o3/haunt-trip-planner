@@ -7,11 +7,11 @@ from typing import Optional, List, Dict
 
 from flask import Flask, render_template, request, jsonify
 
-from models import Trip, Location, Attraction, ScheduleEntry, Segment
+from models import Trip, Location, Attraction, ScheduleEntry, Segment, default_duration_for_name, SIX_FLAGS_MIN_DURATION
 from geocoder import geocode_address
 from scraper import scrape_schedule_with_llm
 from optimizer import optimize, reoptimize, filter_eligible_dates, ItineraryResult
-from discovery import find_gap_nights, find_densify_opportunities
+from discovery import find_gap_nights, find_densify_opportunities, discover_with_schedules
 from exporter import generate_export_html
 
 # ---------------------------------------------------------------------------
@@ -47,6 +47,7 @@ def _serialize_itinerary(result):
                 "price": e.price,
                 "ticket_url": e.ticket_url,
                 "drive_time_min": e.drive_time_min,
+                "duration_min": e.duration_min,
             }
             for e in entries
         ]
@@ -236,6 +237,7 @@ def create_app() -> Flask:
                     ],
                     "prices": scraped.prices,
                     "ticket_urls": scraped.ticket_urls,
+                    "duration_min": scraped.duration_min,
                 })
             except Exception as exc:
                 results.append({
@@ -268,14 +270,19 @@ def create_app() -> Flask:
         if attraction is None:
             return jsonify({"error": f"Attraction '{name}' not found"}), 404
 
+        default_dur = default_duration_for_name(name)
         entries = []  # type: List[ScheduleEntry]
         for entry_data in data["schedule"]:
+            dur = entry_data.get("duration_min", default_dur)
+            if "six flags" in name.lower():
+                dur = max(dur, SIX_FLAGS_MIN_DURATION)
             entries.append(ScheduleEntry(
                 date=date.fromisoformat(entry_data["date"]),
                 open_time=time.fromisoformat(entry_data["open_time"]),
                 close_time=time.fromisoformat(entry_data["close_time"]),
                 price=entry_data.get("price"),
                 ticket_url=entry_data.get("ticket_url"),
+                duration_min=dur,
             ))
 
         attraction.schedule = entries
@@ -313,6 +320,47 @@ def create_app() -> Flask:
         _itinerary = reoptimize(_trip, locked)
         return jsonify(_serialize_itinerary(_itinerary))
 
+    @app.route("/api/price", methods=["PATCH"])
+    def api_price():
+        global _trip
+        if _trip is None:
+            return jsonify({"error": "No trip configured"}), 400
+
+        data = request.get_json(force=True)
+        name = data.get("name")
+        entry_date = data.get("date")
+        new_price = data.get("price")
+
+        for a in _trip.attractions:
+            if a.name == name:
+                for e in a.schedule:
+                    if str(e.date) == entry_date:
+                        e.price = float(new_price) if new_price is not None else None
+                        return jsonify({"status": "ok"})
+                return jsonify({"error": "Date not found for attraction"}), 404
+
+        return jsonify({"error": f"Attraction '{name}' not found"}), 404
+
+    @app.route("/api/duration", methods=["PATCH"])
+    def api_duration():
+        global _trip, _itinerary
+        if _trip is None:
+            return jsonify({"error": "No trip configured"}), 400
+
+        data = request.get_json(force=True)
+        name = data.get("name")
+        new_duration = int(data.get("duration_min", 45))
+
+        for a in _trip.attractions:
+            if a.name == name:
+                for e in a.schedule:
+                    e.duration_min = new_duration
+                if _itinerary is not None:
+                    _itinerary = optimize(_trip)
+                return jsonify(_serialize_itinerary(_itinerary) if _itinerary else {"status": "ok"})
+
+        return jsonify({"error": f"Attraction '{name}' not found"}), 404
+
     @app.route("/api/discover", methods=["POST"])
     def api_discover():
         global _trip, _itinerary
@@ -324,8 +372,14 @@ def create_app() -> Flask:
         scheduled_dates = set(_itinerary.scheduled.keys())
         gaps = find_gap_nights(_trip, scheduled_dates)
 
-        all_suggestions = find_densify_opportunities(_itinerary, _trip.attractions)
-        filtered = [s for s in all_suggestions if s.attraction.name.lower() not in existing_names]
+        densify = find_densify_opportunities(_itinerary, _trip.attractions)
+        densify_filtered = [s for s in densify if s.attraction.name.lower() not in existing_names]
+
+        directory = discover_with_schedules(_trip, existing_names)
+        densify_names = {s.attraction.name.lower() for s in densify_filtered}
+        directory_filtered = [s for s in directory if s.attraction.name.lower() not in densify_names]
+
+        all_suggestions = densify_filtered + directory_filtered
 
         return jsonify({
             "gaps": [str(d) for d in gaps],
@@ -337,8 +391,10 @@ def create_app() -> Flask:
                     "distance": round(s.distance_miles, 1),
                     "type": s.suggestion_type,
                     "url": s.website_url,
+                    "schedule_dates": [str(e.date) for e in s.attraction.schedule] if s.attraction.schedule else [],
+                    "price": s.attraction.schedule[0].price if s.attraction.schedule and s.attraction.schedule[0].price else None,
                 }
-                for s in filtered
+                for s in all_suggestions
             ],
         })
 

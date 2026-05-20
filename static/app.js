@@ -944,16 +944,18 @@ function renderItinerary(data) {
             var div = document.createElement("div");
             div.className = "haunt-entry";
 
-            var priceHtml = "";
-            if (entry.price !== null && entry.price !== undefined) {
-                nightlyTotal += entry.price;
-                if (entry.ticket_url) {
-                    priceHtml = '<div class="haunt-price">$' + entry.price.toFixed(2) +
-                        ' &mdash; <a href="' + entry.ticket_url + '" target="_blank">Buy Tickets</a></div>';
-                } else {
-                    priceHtml = '<div class="haunt-price">$' + entry.price.toFixed(2) + '</div>';
-                }
-            }
+            var priceVal = (entry.price !== null && entry.price !== undefined) ? entry.price : 0;
+            nightlyTotal += priceVal;
+            var entryDate = d;
+            var entryName = entry.name;
+            var ticketHtml = entry.ticket_url
+                ? ' &mdash; <a href="' + entry.ticket_url + '" target="_blank">Buy Tickets</a>'
+                : '';
+            var priceHtml = '<div class="haunt-price">' +
+                '$<input type="number" class="inline-price" value="' + (priceVal || '') + '" step="0.01" min="0" ' +
+                'data-name="' + entryName.replace(/"/g, '&quot;') + '" data-date="' + entryDate + '" ' +
+                'onchange="updatePrice(this)">' +
+                ticketHtml + '</div>';
 
             var driveHtml = "";
             if (entry.drive_time_min != null) {
@@ -963,13 +965,20 @@ function renderItinerary(data) {
                 driveHtml = ' <span class="haunt-drive">(' + driveLabel + ' drive)</span>';
             }
 
+            var durationVal = entry.duration_min || 45;
+            var durationHtml = '<div class="haunt-duration">' +
+                'Est. time: <input type="number" class="inline-duration" value="' + durationVal + '" min="10" max="180" step="5" ' +
+                'data-name="' + entryName.replace(/"/g, '&quot;') + '" ' +
+                'onchange="updateDuration(this)"> min</div>';
+
             div.innerHTML =
                 '<div class="haunt-name">' + entry.name + '</div>' +
                 '<div class="haunt-time">Arrive: ' + formatTime(entry.arrival_time) +
                 driveHtml +
                 ' | Open: ' + formatTime(entry.open_time) +
                 ' - ' + formatTime(entry.close_time) + '</div>' +
-                priceHtml;
+                priceHtml +
+                durationHtml;
 
             container.appendChild(div);
 
@@ -1200,6 +1209,65 @@ function addSelectedSuggestions() {
 // ---------------------------------------------------------------------------
 // Export
 // ---------------------------------------------------------------------------
+
+function updateDuration(input) {
+    var name = input.getAttribute("data-name");
+    var newDuration = input.value ? parseInt(input.value) : 45;
+
+    fetch("/api/duration", {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ name: name, duration_min: newDuration })
+    }).then(function(resp) {
+        return resp.json();
+    }).then(function(data) {
+        if (data.scheduled) {
+            renderItinerary(data);
+        }
+    });
+}
+
+function updatePrice(input) {
+    var name = input.getAttribute("data-name");
+    var entryDate = input.getAttribute("data-date");
+    var newPrice = input.value ? parseFloat(input.value) : null;
+
+    fetch("/api/price", {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ name: name, date: entryDate, price: newPrice })
+    }).then(function(resp) {
+        if (!resp.ok) return;
+        recalcTotals();
+    });
+}
+
+function recalcTotals() {
+    var container = document.getElementById("itinerary-container");
+    if (!container) return;
+
+    var tripTotal = 0;
+    container.querySelectorAll(".date-header").forEach(function(header) {
+        var nightlyTotal = 0;
+        var sibling = header.nextElementSibling;
+        while (sibling && !sibling.classList.contains("date-header") && !sibling.classList.contains("subtotal") && !sibling.classList.contains("trip-total") && !sibling.classList.contains("unscheduled-section")) {
+            var priceInput = sibling.querySelector(".inline-price");
+            if (priceInput && priceInput.value) {
+                nightlyTotal += parseFloat(priceInput.value) || 0;
+            }
+            sibling = sibling.nextElementSibling;
+        }
+        if (sibling && sibling.classList.contains("subtotal")) {
+            sibling.textContent = "Nightly Total: $" + nightlyTotal.toFixed(2);
+        }
+        tripTotal += nightlyTotal;
+    });
+
+    var totalEl = container.querySelector(".trip-total");
+    if (totalEl) {
+        totalEl.textContent = "Trip Total: $" + tripTotal.toFixed(2);
+    }
+}
 
 function printItinerary() {
     window.print();
